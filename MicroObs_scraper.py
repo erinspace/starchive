@@ -1,10 +1,5 @@
 ## Scraper for MicroObs Image Directory!! ##
 
-# http://mo-www.harvard.edu/ImageDirectory/Venus140607170650.FITS
-
-
-## get a list of all the files on the MicroObs image directory right now
-
 from bs4 import BeautifulSoup
 import requests
 
@@ -19,20 +14,28 @@ tag = soup.pre
 # this is all the a tags in the pre tag 
 tag.find_all('a')
 
-# list of all the a tags in the pre tag
-a_tags = list(soup.descendants)[2].find_all('a')
+# This finds all the tags with the text in them we want
+all_a = [b.find('a', text=True) for b in tag.findAll('b')]
 
-# this will print all the a tags that have the text we want
-for item in tag.children:
-    print list(item.next_sibling)[1]
+file_names = []
+
+for filename in all_a:
+    file_names.add(filename.text)
+
+print file_names
 
 
-
-print(soup.prettify())
+# print(soup.prettify())
 
 
 # tag is the pre tag
 
 
 # pre -> b -> first a
+
+# anchors = [td.find('a') for td in soup.findAll('td')]
+
+# That should find the first "a" inside each "td" in the html you provide. 
+# You can tweak td.find to be more specific or else use findAll if 
+# you have several links inside each td.
 
