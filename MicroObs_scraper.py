@@ -20,7 +20,7 @@ all_a = [b.find('a', text=True) for b in tag.findAll('b')]
 file_names = []
 
 for filename in all_a:
-    file_names.add(filename.text)
+    file_names.append(filename.text)
 
 print file_names
 
