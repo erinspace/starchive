@@ -22,20 +22,9 @@ file_names = []
 for filename in all_a:
     file_names.append(filename.text)
 
+file_names = [ext.replace('GIF','FITS') for ext in file_names]
+
 print file_names
 
 
-# print(soup.prettify())
-
-
-# tag is the pre tag
-
-
-# pre -> b -> first a
-
-# anchors = [td.find('a') for td in soup.findAll('td')]
-
-# That should find the first "a" inside each "td" in the html you provide. 
-# You can tweak td.find to be more specific or else use findAll if 
-# you have several links inside each td.
-
+# request url = http://mo-www.harvard.edu/ImageDirectory/CentaurusA140609034607.FITS
