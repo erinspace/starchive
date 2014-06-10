@@ -27,6 +27,8 @@ print file_names
 
 base_url = 'http://mo-www.harvard.edu/ImageDirectory/'
 
+sdjf
+
 for filename in file_names[1:3]:
     filename = filename.strip()
     FITs_file = requests.get(base_url + filename)
